@@ -1,0 +1,30 @@
+# Review text, reviewer data and labelled reviews never go to git (CLAUDE.md rule 1).
+# In play_reviews/data/ only the aggregate files listed below are committed.
+play_reviews/data/*
+!play_reviews/data/panel_app_lang_month.csv
+!play_reviews/data/app_month.csv
+!play_reviews/data/apps_metadata.csv
+!play_reviews/data/scrape_summary.csv
+!play_reviews/data/validation_report.txt
+play_reviews/test_data/
+
+# The same files wherever --out points
+raw/
+*.jsonl
+reviews_raw*.csv
+reviews_lang*.csv
+validation_sample*.csv
+
+# IndicLID models (downloaded by detect_language.py download-models)
+play_reviews/models/
+
+# Python, editors, operating systems
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+~$*
