@@ -15,6 +15,10 @@ reviews_raw*.csv
 reviews_lang*.csv
 validation_sample*.csv
 
+# Simulated data and dry-run outputs (rebuilt by analysis/simulate_panel.py and estimate.py)
+data/sim/
+results/sim/
+
 # IndicLID models (downloaded by detect_language.py download-models)
 play_reviews/models/
 

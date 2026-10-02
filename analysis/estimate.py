@@ -21,7 +21,8 @@ Inputs
     --launch  data/launch_dates.csv   package, ai_launch_month (YYYY-MM or blank), include (1/0),
                                      panel_end (optional YYYY-MM: last month to use for that app)
     --firm-events data/firm_events.csv  package, event_month (for --exclude-overlap)
-Outputs in --out (default results/): main_estimates.csv, event_study.csv/.png, placebo.csv/.png, summary.md
+Outputs in --out (default results/): main_estimates.csv, main_table.csv/.tex (tables.py),
+event_study.csv/.png/.pdf, placebo.csv/.png/.pdf, summary.md. Figures are sized for one journal column (90 mm).
 """
 import argparse
 import warnings
@@ -36,6 +37,11 @@ FE = "package^month + language^month + package^language"
 MEASURES = ["n_main", "n_mixed_ind", "n_script", "n_play"]
 MEASURE_LABEL = {"n_main": "Main (mixed reviews count as English)", "n_mixed_ind": "Mixed reviews count as Indian",
                  "n_script": "Indian script only", "n_play": "Google Play language tag"}
+FIG_W = 3.54   # inches: one column of an Elsevier journal page (90 mm)
+PAPER_RC = {"font.size": 8, "axes.labelsize": 8, "xtick.labelsize": 7, "ytick.labelsize": 7,
+            "axes.linewidth": 0.6, "xtick.major.width": 0.6, "ytick.major.width": 0.6,
+            "xtick.major.size": 2.5, "ytick.major.size": 2.5,
+            "axes.spines.top": False, "axes.spines.right": False, "pdf.fonttype": 42}
 
 
 def month_index(s):
@@ -129,6 +135,11 @@ def placebo(d, launch, y, reps, seed, min_side=6):
     return pd.DataFrame(out)
 
 
+def ri_pvalue(placebo_betas, beta):
+    """Two-sided randomization-inference p-value: share of placebo estimates at least as large as |beta|."""
+    return float((np.abs(np.asarray(placebo_betas)) >= abs(beta)).mean())
+
+
 def overlap_exclusions(launch, events_path, k):
     ev = pd.read_csv(events_path, dtype=str).fillna("")
     ev = ev[(ev["package"] != "") & (ev["event_month"] != "")]
@@ -144,36 +155,63 @@ def overlap_exclusions(launch, events_path, k):
     return out
 
 
-def plot_event(es, path, title):
+def save_figure(fig, path):
+    """PNG at print resolution, plus a vector PDF with the same name for the manuscript."""
+    import logging
+    logging.getLogger("fontTools").setLevel(logging.WARNING)   # PDF font embedding is chatty
+    fig.savefig(path, dpi=600)
+    fig.savefig(Path(path).with_suffix(".pdf"))
+
+
+def plot_event(es, path):
+    """Quarterly effects with 95% intervals; black and white, one journal column wide."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    fig, ax = plt.subplots(figsize=(6, 3.6), dpi=200)
-    ax.axhline(0, color="0.5", lw=0.8)
-    ax.axvline(-0.5, color="0.7", lw=0.8, ls="--")
-    ax.errorbar(es["quarter"], es["beta"], yerr=[es["beta"] - es["ci_low"], es["ci_high"] - es["beta"]],
-                fmt="o", color="black", ecolor="0.4", capsize=3, ms=4)
-    ax.set_xlabel("Quarters since AI launch (-4 and 4 include all earlier/later quarters)")
-    ax.set_ylabel("Effect on log Indian-language reviews")
-    ax.set_title(title, fontsize=9)
-    ax.set_xticks(range(-4, 5))
-    fig.tight_layout()
-    fig.savefig(path)
-    plt.close(fig)
+    es = es.sort_values("quarter")
+    est, ref = es[es["quarter"] != -1], es[es["quarter"] == -1]
+    qs = list(range(int(es["quarter"].min()), int(es["quarter"].max()) + 1))
+    labels = [str(q).replace("-", "−") for q in qs]
+    labels[0], labels[-1] = "≤" + labels[0], "≥" + labels[-1]   # end quarters are binned
+    with plt.rc_context(PAPER_RC):
+        fig, ax = plt.subplots(figsize=(FIG_W, 2.3))
+        ax.axhline(0, color="0.6", lw=0.6, zorder=0)
+        ax.axvline(-0.5, color="0.6", lw=0.6, ls=(0, (3, 2)), zorder=0)
+        ax.errorbar(est["quarter"], est["beta"], yerr=[est["beta"] - est["ci_low"], est["ci_high"] - est["beta"]],
+                    fmt="o", color="black", ms=3.5, lw=0.8, capsize=1.8, capthick=0.8)
+        ax.plot(ref["quarter"], ref["beta"], "o", mfc="white", mec="black", ms=3.5, mew=0.8)
+        ax.annotate("ref.", (-1, 0), xytext=(0, -5), textcoords="offset points", ha="center", va="top",
+                    fontsize=6.5, color="0.3")
+        ax.set_xticks(qs, labels)
+        ax.set_xlabel("Quarters since AI launch")
+        ax.set_ylabel("Effect on Indian-language\nreviews (log points)")
+        fig.tight_layout(pad=0.3)
+        save_figure(fig, path)
+        plt.close(fig)
 
 
-def plot_placebo(pl, beta, path):
+def plot_placebo(pl, beta, path, p_ri=None):
+    """Histogram of placebo estimates with the actual estimate marked; one journal column wide."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    fig, ax = plt.subplots(figsize=(5, 3.2), dpi=200)
-    ax.hist(pl["beta"], bins=30, color="0.75", edgecolor="0.4")
-    ax.axvline(beta, color="black", lw=1.5)
-    ax.set_xlabel("Placebo estimates (random apps and launch months)")
-    ax.set_ylabel("Draws")
-    fig.tight_layout()
-    fig.savefig(path)
-    plt.close(fig)
+    lim = 1.1 * max(float(np.abs(pl["beta"]).max()), abs(beta))
+    with plt.rc_context(PAPER_RC):
+        fig, ax = plt.subplots(figsize=(FIG_W, 2.2))
+        counts, _, _ = ax.hist(pl["beta"], bins=np.linspace(-lim, lim, 31), color="0.82", edgecolor="0.35", lw=0.4)
+        ax.axvline(beta, color="black", lw=1.2)
+        ax.set_xlim(-lim, lim)
+        ax.set_ylim(0, 1.3 * counts.max())
+        ax.annotate("Estimate", (beta, 1), xycoords=("data", "axes fraction"), xytext=(-3 if beta > 0 else 3, -1),
+                    textcoords="offset points", ha="right" if beta > 0 else "left", va="top", fontsize=7)
+        if p_ri is not None:
+            ax.text(0.02 if beta > 0 else 0.98, 0.98, f"Randomization-inference p = {p_ri:.3f}\n({len(pl):,} placebo draws)",
+                    transform=ax.transAxes, ha="left" if beta > 0 else "right", va="top", fontsize=7)
+        ax.set_xlabel("Placebo estimate (log points)")
+        ax.set_ylabel("Placebo draws")
+        fig.tight_layout(pad=0.3)
+        save_figure(fig, path)
+        plt.close(fig)
 
 
 def main():
@@ -209,7 +247,7 @@ def main():
     y0 = measures[0]
     es = fit_event(d, y0)
     es.to_csv(a.out / "event_study.csv", index=False)
-    plot_event(es, a.out / "event_study.png", MEASURE_LABEL.get(y0, y0))
+    plot_event(es, a.out / "event_study.png")
 
     pl_path = a.out / "placebo.csv"
     pl_old = pd.read_csv(pl_path) if pl_path.exists() and a.placebo else pd.DataFrame(columns=["draw_seed", "draw", "beta"])
@@ -227,14 +265,16 @@ def main():
         lines.append(f"| {MEASURE_LABEL.get(r.measure, r.measure)} | {r.effect_pct:+.1f} | {r.beta:.3f} | {r.se:.3f} | "
                      f"{r.p:.3f} | [{r.ci_low:.3f}, {r.ci_high:.3f}] | {r.n_apps} ({r.n_treated}) | {r.n_obs:,} |")
     if len(pl):
-        p_ri = float((np.abs(pl["beta"]) >= abs(beta0)).mean())
+        p_ri = ri_pvalue(pl["beta"], beta0)
         lines += ["", f"Randomization inference ({len(pl)} placebo draws, {MEASURE_LABEL.get(y0, y0)}): p = {p_ri:.3f}"]
-        plot_placebo(pl, beta0, a.out / "placebo.png")
+        plot_placebo(pl, beta0, a.out / "placebo.png", p_ri)
     pre = es[es["quarter"] < -1]
     if len(pre):
         lines += ["", "Pre-launch quarters (should be near zero): "
                   + ", ".join(f"q{int(q)}: {b:+.3f} (se {s:.3f})" for q, b, s in zip(pre["quarter"], pre["beta"], pre["se"]))]
     (a.out / "summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    from tables import write_main_table
+    write_main_table(a.out)
     print("\n".join(lines))
 
 

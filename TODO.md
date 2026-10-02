@@ -14,7 +14,7 @@ Tick items as they are done.
 
 ## 2. Can start now (no real data needed)
 - [x] **Cloud.** `02_power_simulation.md`: how many dated AI launches are needed to detect a 10–20% effect. (2 Oct 2026: in a 40-app panel the effect detectable with 80% power is about 44% with 8 launches and 31% with 20, so 10–20% effects are underpowered; clustered SEs reject 8–24% of the time at a zero effect, so randomization inference should be the main test. See `results/power_summary.md`.)
-- [ ] **Cloud.** `03_estimation_dry_run.md`: full estimation on simulated data, with tables, event-study figure and placebos.
+- [x] **Cloud.** `03_estimation_dry_run.md`: full estimation on simulated data, with tables, event-study figure and placebos. (2 Oct 2026: true +15% estimated at +24% (95% CI 10–40%), pre-launch quarters near zero, randomization-inference p = 0.012 with 500 draws; `estimate.py` now also writes the LaTeX/CSV table (`analysis/tables.py`) and single-column black-and-white figures. See `results/dry_run_notes.md`.)
 - [ ] **Cloud or Cowork.** `04_firm_event_gaps.md`: BharatAgri's 2023 round and Kisanwala handover, KisanKraft, Gramophone's early rounds, Animall acquisitions.
 - [ ] **You (Tracxn, by hand).** Check the 33 items on the "Event leads" sheet of the sampling frame. Start with BharatAgri's 2023 round and Krishify's closing date.
 - [ ] **You.** Clear the 20 "Check first" apps and the 7 open checks in the sampling frame. Update `include` in `data/launch_dates.csv`.
