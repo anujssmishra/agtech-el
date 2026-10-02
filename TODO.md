@@ -10,10 +10,10 @@ Tick items as they are done.
 
 ## 1. Set up (once)
 - [ ] **You.** Create a private GitHub repository, upload this folder and connect it to claude.ai/code (steps in README.md).
-- [ ] **Cloud.** `cloud_tasks/01_check_setup.md`: confirm the environment works and the tests pass.
+- [x] **Cloud.** `cloud_tasks/01_check_setup.md`: confirm the environment works and the tests pass. (2 Oct 2026: Python 3.11.15; every setup item ok and IndicLID downloaded on Trusted; 7 of 7 tests pass and the demo labels are correct. Restored the `.gitignore` and `.claude/settings.json` that the upload dropped.)
 
 ## 2. Can start now (no real data needed)
-- [ ] **Cloud.** `02_power_simulation.md`: how many dated AI launches are needed to detect a 10–20% effect.
+- [x] **Cloud.** `02_power_simulation.md`: how many dated AI launches are needed to detect a 10–20% effect. (2 Oct 2026: in a 40-app panel the effect detectable with 80% power is about 44% with 8 launches and 31% with 20, so 10–20% effects are underpowered; clustered SEs reject 8–24% of the time at a zero effect, so randomization inference should be the main test. See `results/power_summary.md`.)
 - [ ] **Cloud.** `03_estimation_dry_run.md`: full estimation on simulated data, with tables, event-study figure and placebos.
 - [ ] **Cloud or Cowork.** `04_firm_event_gaps.md`: BharatAgri's 2023 round and Kisanwala handover, KisanKraft, Gramophone's early rounds, Animall acquisitions.
 - [ ] **You (Tracxn, by hand).** Check the 33 items on the "Event leads" sheet of the sampling frame. Start with BharatAgri's 2023 round and Krishify's closing date.
