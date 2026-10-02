@@ -1,0 +1,48 @@
+package,platform,panel_role,ai_launch_month,include,panel_end,source,note
+app.intspvt.com.farmer,DeHaat,Treated (date needed),,0,,,"Find the launch month, then set include=1"
+com.ulink.agrostar,AgroStar,Treated (date known),2019-09,1,,,Dated Sep 2019 (sampling frame); confirm in the Launch log
+com.BigHaat,BigHaat,Treated (date known),2023-03,1,,,'By Mar 2023' is an upper bound; confirm
+agstack.gramophone,Gramophone,Comparison (no AI found),,1,2023-06,,Comparison app: leave the date blank unless AI is found; panel ends 2023-06 (app not updated since Jun 2023; merged into Unnati Jan 2026)
+com.leanagri.leannutri,BharatAgri,Treated (date known),2023-08,1,2025-10,,Dated Aug 2023; confirm. Panel ends 2025-10 (company shut Nov 2025; app later run by Kisanwala)
+com.agribegri,AgriBegri,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.criyagen,AgriApp,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+farmstock.agriculture.plants.kisan.krishi,Krishify,Treated (date known),2021-12,1,,,Dec 2021 (frame); AgriTimes item suggests Jan 2022; confirm
+com.peat.GartenBank,Plantix,AI from launch (exclude from main estimate),,0,,,AI from day one: no before-period; keep out of the main estimate
+com.wolkus.fasalapp,Fasal,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.kissangpt,KissanAI,AI from launch (exclude from main estimate),,0,,,AI from day one: no before-period; keep out of the main estimate
+com.kisankraft.krishakkraft,KisanKraft,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.globalagricentral,AgriCentral,Treated (date needed),,0,2025-01,,"Find the launch month, then set include=1; panel ends 2025-01 (ownership change: Olam Agri to DeHaat, 22 Jan 2025)"
+com.ninja.kisaan,Ninja Kisan (Ninjacart),Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.agribazaarapp,AgriBazaar,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+in.animall.android,Animall,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.sirpi.dvaracattlehealth,Dvara Surabhi,Treated (date known),2021-06,1,,,Dated Jun 2021; confirm
+org.cari.farm_mojo,Dr.Grow (Aquaconnect),Treated (date known),2019-05,1,,,Dated May 2019; confirm
+com.tractorjunction,TractorJunction,Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
+com.khetigaadi,KhetiGaadi,Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
+com.fyllo.fyllo,Fyllo,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.aquaexchange.app,AquaExchange,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.farmonaut.android,Farmonaut,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.climate.farmrise,Bayer FarmRise,Treated (date needed),,0,,,"Find the launch month, then set include=1"
+nurture.farm,nurture.farm,Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
+com.carnot.krishe.kisaandiary,Krish-e,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.itc.maars,ITCMAARS,Treated (date known),2024-02,1,,,Feb (announced) or Apr 2024 (live); confirm which
+com.rws.krishi,JioKrishi,Treated (date needed),,0,,,"Find the launch month, then set include=1"
+com.prompt.ma.maapplicationfinalAmul,Amul Farmers App,Treated (date known),2026-02,1,,,AI launch 11 Feb 2026; short post-period
+com.aas.meghdoot,Meghdoot,Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
+com.kisansarthi.farmer,Kisan Sarathi,Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
+in.gov.enam,eNAM,Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
+agri.tnagri,Uzhavan (UZHAVAR),Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
+com.dfs.biharkrishi,Bihar Krishi,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.vassar.aims,KATHIR,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+in.gov.mahapocra.mahavistaarai,MahaVISTAAR-AI,AI from launch (exclude from main estimate),,0,,,AI from day one: no before-period; keep out of the main estimate
+com.nic.project.pmkisan,PMKISAN GoI,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+org.digitalgreen.farmer.chat,Farmer.Chat,AI from launch (exclude from main estimate),,0,,,AI from day one: no before-period; keep out of the main estimate
+com.vistaar.gov.in,Bharat-VISTAAR,AI from launch (exclude from main estimate),,0,,,AI from day one: no before-period; keep out of the main estimate
+in.farmguide.farmerapp.central,PMFBY Crop Insurance,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+org.wadhwaniai.pm,CottonAce,AI from launch (exclude from main estimate),,0,,,AI from day one: no before-period; keep out of the main estimate
+com.salamkisan,Salam Kisan,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.GrainbankFarmer.app,GrainBank Farmer (Ergos),Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.coromandel.gromor,MyGromor,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.ecozen.ecotron.app,ecotron (Ecozen),Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.syngenta.growerconnectapp,Cropwise Grower (Syngenta),Treated (date needed),,0,,,"Find the launch month, then set include=1"
+com.absolutefoods.igrow,UPAJ (Absolute),Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"

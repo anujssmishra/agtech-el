@@ -1,0 +1,5 @@
+pyfixest>=0.30      # Poisson regression with high-dimensional fixed effects
+pandas>=1.5
+numpy
+matplotlib
+pytest

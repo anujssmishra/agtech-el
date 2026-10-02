@@ -1,0 +1,48 @@
+package,platform,play_title,panel_role,owner_type,category,ai_timing,scrape
+app.intspvt.com.farmer,DeHaat,DeHaat Kisan: Farming Guide,Treated (date needed),Startup,Input marketplace + advisory,Undated claim,1
+com.ulink.agrostar,AgroStar,Agrostar: Kisan Agridoctor App,Treated (date known),Startup,Input marketplace + advisory,Dated (Sep 2019),1
+com.BigHaat,BigHaat,BigHaat Smart Farming App,Treated (date known),Startup,Input marketplace + advisory,Dated (by Mar 2023; confirm),1
+agstack.gramophone,Gramophone,Gramophone - Smart Farming App,Comparison (no AI found),Startup,Input marketplace + advisory,None found,1
+com.leanagri.leannutri,BharatAgri,BharatAgri: Krushidukan App,Treated (date known),Startup,Input marketplace + advisory,Dated (Aug 2023),1
+com.agribegri,AgriBegri,AgriBegri Kisan Krishi App,Check first,Startup,Input marketplace + advisory,"Weak, undated claim",1
+com.criyagen,AgriApp,AgriApp : Smart Farming App,Check first,Startup,Input marketplace + advisory,"Weak, undated claim",1
+farmstock.agriculture.plants.kisan.krishi,Krishify,Krishify: Farmer Community App,Treated (date known),Startup,Farmer social / content,Dated (Dec 2021),1
+com.peat.GartenBank,Plantix,Plantix - your crop doctor,AI from launch (exclude from main estimate),Startup (foreign-owned),Advisory / crop health,AI from launch,1
+com.wolkus.fasalapp,Fasal,Fasal,Check first,Startup,Farm management / IoT / precision,Undated (likely from launch),1
+com.kissangpt,KissanAI,KissanAI,AI from launch (exclude from main estimate),Startup,Advisory / crop health (GenAI),AI from launch,1
+com.kisankraft.krishakkraft,KisanKraft,KisanKraft - Agriculture App,Check first,Private company,Input marketplace + advisory (machinery maker),Unclear,1
+com.globalagricentral,AgriCentral,AgriCentral,Treated (date needed),Startup (acquired),"Advisory / crop health (prices, crop planning, diagnosis)",Undated claim,1
+com.ninja.kisaan,Ninja Kisan (Ninjacart),Ninja Kisan,Check first,Startup,Market linkage / output,Unclear,1
+com.agribazaarapp,AgriBazaar,AgriBazaar,Check first,Startup,Market linkage / output,Undated claim,1
+in.animall.android,Animall,Animall,Check first,Startup,Livestock / dairy (cattle marketplace),Sister app (Nov 2025),1
+com.sirpi.dvaracattlehealth,Dvara Surabhi,Dvara Surabhi,Treated (date known),Startup,Livestock / dairy,Dated (Jun 2021),1
+org.cari.farm_mojo,Dr.Grow (Aquaconnect),Dr.Grow (formerly Aquaconnect Farmer / FarmMOJO),Treated (date known),Startup,Aquaculture,Dated (May 2019),1
+com.tractorjunction,TractorJunction,TractorJunction: Buy/Sell,Comparison (no AI found),Startup,Mechanisation / equipment,None found,1
+com.khetigaadi,KhetiGaadi,New Tractors & Old Tractors,Comparison (no AI found),Startup,Mechanisation / equipment,None found,1
+com.fyllo.fyllo,Fyllo,Fyllo,Check first,Startup,Farm management / IoT / precision,Undated claim,1
+com.aquaexchange.app,AquaExchange,Aqua Exchange,Check first,Startup,Aquaculture,Undated claim,1
+com.farmonaut.android,Farmonaut,Farmonaut,Check first,Startup,Satellite crop monitoring and advisory,Undated claim,1
+com.climate.farmrise,Bayer FarmRise,Bayer FarmRise,Treated (date needed),Corporate,Advisory / crop health,Dated (2025; month needed),1
+nurture.farm,nurture.farm,nurture.farm Kheti Ka App,Comparison (no AI found),Corporate,Input marketplace + advisory,None found,1
+com.carnot.krishe.kisaandiary,Krish-e,Krish-e: Kheti Ke Liye App,Check first,Corporate,Advisory / crop health,Sister app (Oct 2021),1
+com.itc.maars,ITCMAARS,ITCMAARS - Farmer App,Treated (date known),Corporate,Input marketplace + advisory,Dated (Feb/Apr 2024),1
+com.rws.krishi,JioKrishi,JioKrishi: Smart Farming Guide,Treated (date needed),Corporate,Advisory / crop health,Dated (Oct 2024 showcase; confirm),1
+com.prompt.ma.maapplicationfinalAmul,Amul Farmers App,Amul Farmers App,Treated (date known),Cooperative,Livestock / dairy (co-op member app),Dated (11 Feb 2026),1
+com.aas.meghdoot,Meghdoot,Meghdoot,Comparison (no AI found),Government,Weather / agromet advisory,None found,1
+com.kisansarthi.farmer,Kisan Sarathi,Kisan Sarathi,Comparison (no AI found),Government,Advisory / crop health,None found,1
+in.gov.enam,eNAM,eNAM,Comparison (no AI found),Government,Market linkage / output,None found,1
+agri.tnagri,Uzhavan (UZHAVAR),Uzhavan (Play title now UZHAVAR),Comparison (no AI found),Government,State-government multi-service app,None found,1
+com.dfs.biharkrishi,Bihar Krishi,Bihar Krishi,Check first,Government,State-government one-stop app,AI at public launch,1
+com.vassar.aims,KATHIR,KATHIR,Check first,Government,State-government information and advisory,AI from launch (satellite),1
+in.gov.mahapocra.mahavistaarai,MahaVISTAAR-AI,MahaVISTAAR-AI,AI from launch (exclude from main estimate),Government,AI assistant,AI from launch,1
+com.nic.project.pmkisan,PMKISAN GoI,PMKISAN GoI,Check first,Government,Scheme / service delivery,Dated (Sep 2023),1
+org.digitalgreen.farmer.chat,Farmer.Chat,FarmerChat - Agri Assistant,AI from launch (exclude from main estimate),Non-profit,AI assistant,AI from launch,1
+com.vistaar.gov.in,Bharat-VISTAAR,Bharat Vistaar,AI from launch (exclude from main estimate),Government,AI assistant,AI from launch,1
+in.farmguide.farmerapp.central,PMFBY Crop Insurance,Crop Insurance,Check first,Government,Scheme / service delivery,Unclear,1
+org.wadhwaniai.pm,CottonAce,CottonAce,AI from launch (exclude from main estimate),Non-profit,Advisory / crop health,AI from launch,1
+com.salamkisan,Salam Kisan,Salam Kisan,Check first,Startup,"Drone spraying, crop diagnostics, marketplace",Undated claim,1
+com.GrainbankFarmer.app,GrainBank Farmer (Ergos),GrainBank Farmer,Check first,Startup,Post-harvest storage and credit,None found,1
+com.coromandel.gromor,MyGromor,MyGromor,Check first,Corporate,Input marketplace + advisory,Unclear (likely from launch),1
+com.ecozen.ecotron.app,ecotron (Ecozen),ecotron,Check first,Startup,Farm IoT (solar pump control),None found,1
+com.syngenta.growerconnectapp,Cropwise Grower (Syngenta),Cropwise Grower - Kisan App,Treated (date needed),Corporate,Advisory / crop health,Undated (by 2025),1
+com.absolutefoods.igrow,UPAJ (Absolute),UPAJ - Kisan ka Super App,Check first,Startup,Input marketplace + advisory (farmer super-app),Unclear (satellite from launch?),1
