@@ -49,6 +49,11 @@ class BucketError(Exception):
     """Raised when a request keeps failing after all retries."""
 
 
+class NoReviewList(Exception):
+    """Google answered with no review list at all. It does this for a language with no reviews (and, rarely,
+    as a one-off glitch); google-play-scraper 1.2.7 then fails with a TypeError about NoneType."""
+
+
 # --------------------------------------------------------------------------- library
 def import_library(insecure_tls):
     try:
@@ -192,10 +197,15 @@ class Scraper:
     def fetch_page(self, pkg, lang, token):
         url = self.Formats.Reviews.build(lang=lang, country=self.args.country)
         sort = self.Sort.NEWEST.value
-        if self.n_args >= 7:
-            items, nxt = self.rev._fetch_review_items(url, pkg, sort, self.args.page_size, None, None, token)
-        else:
-            items, nxt = self.rev._fetch_review_items(url, pkg, sort, self.args.page_size, None, token)
+        try:
+            if self.n_args >= 7:
+                items, nxt = self.rev._fetch_review_items(url, pkg, sort, self.args.page_size, None, None, token)
+            else:
+                items, nxt = self.rev._fetch_review_items(url, pkg, sort, self.args.page_size, None, token)
+        except TypeError as e:
+            if "NoneType" not in str(e):
+                raise  # any other TypeError is a library change: stop
+            raise NoReviewList(str(e)) from e
         if isinstance(nxt, list):
             nxt = None
         return items or [], nxt
@@ -223,14 +233,25 @@ class Scraper:
         state.update({"package": pkg, "lang": lang, "status": "running",
                       "since": a.since.date().isoformat(), "page_size": a.page_size})
         state.setdefault("pages", 0)
-        n_saved, empty_pages, first_page = len(saved), 0, token is None
+        n_saved, empty_pages, first_page, no_list = len(saved), 0, token is None, 0
         log.info("  %-3s start (%d already saved%s)", lang, n_saved, ", resuming" if token else "")
         while True:
             if a.max_per_bucket and n_saved >= a.max_per_bucket:
                 state["status"], state["note"] = "capped", f"stopped at --max-per-bucket {a.max_per_bucket}"
                 break
             try:
-                items, nxt = with_retries(self.fetch_page, pkg, lang, token, what=f"{pkg} [{lang}] page")
+                items, nxt = with_retries(self.fetch_page, pkg, lang, token, what=f"{pkg} [{lang}] page",
+                                          not_found=NoReviewList)
+            except NoReviewList:
+                no_list += 1
+                if no_list < 3:  # usually means no reviews in this language; try twice more in case of a glitch
+                    polite_sleep(a.delay * 3)
+                    continue
+                if first_page and token is None:
+                    state["status"], state["note"] = "complete", "no reviews in this language (no review list, 3 tries)"
+                else:
+                    state["status"], state["note"] = "error", "no review list part-way through; rerun to resume"
+                break
             except BucketError as e:
                 if token is not None and first_page is False and state.get("retried_from_start") is not True:
                     # an old continuation token may have expired: start the bucket again from the newest review
@@ -240,6 +261,7 @@ class Scraper:
                     continue
                 state["status"], state["note"] = "error", str(e)[:300]
                 break
+            no_list = 0
             fetched = now_utc().isoformat()
             rows = [self.parse(i, lang, fetched) for i in items]
             rows = [r for r in rows if r.get("reviewId")]
@@ -414,6 +436,8 @@ def main():
         a.langs.insert(0, "en")
     a.since = dt.datetime.fromisoformat(a.since).replace(tzinfo=UTC)
     a.page_size = max(20, min(a.page_size, 4500))
+    if a.max_per_bucket:  # a test run should not download a full page beyond its cap
+        a.page_size = max(20, min(a.page_size, a.max_per_bucket))
     try:
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     except (AttributeError, ValueError):
