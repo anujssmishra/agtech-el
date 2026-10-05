@@ -9,7 +9,7 @@ Who or where does each task:
 Tick items as they are done.
 
 ## 1. Set up (once)
-- [ ] **You.** Create a private GitHub repository, upload this folder and connect it to claude.ai/code (steps in README.md).
+- [x] **You.** Create a private GitHub repository, upload this folder and connect it to claude.ai/code (steps in README.md). (2 Oct 2026: done; the hidden `.gitignore` and `.claude/settings.json` were restored in task 01.)
 - [x] **Cloud.** `cloud_tasks/01_check_setup.md`: confirm the environment works and the tests pass. (2 Oct 2026: Python 3.11.15; every setup item ok and IndicLID downloaded on Trusted; 7 of 7 tests pass and the demo labels are correct. Restored the `.gitignore` and `.claude/settings.json` that the upload dropped.)
 
 ## 2. Can start now (no real data needed)
@@ -20,7 +20,7 @@ Tick items as they are done.
 - [ ] **You.** Clear the 20 "Check first" apps and the 7 open checks in the sampling frame. Update `include` in `data/launch_dates.csv`.
 
 ## 3. Collect the data
-- [ ] **PC.** Do the setup and the 2-minute test scrape (AgroStar), as in `play_reviews/README.md`. Or, in the cloud, use `05_scrape_in_cloud.md` with the network set to Custom plus `play.google.com`.
+- [ ] **PC.** Do the setup and the 2-minute test scrape (AgroStar), as in `play_reviews/README.md`. Or, in the cloud, use `05_scrape_in_cloud.md` with the network set to Custom plus `play.google.com`. (5 Oct 2026: cloud test scrape of AgroStar works: 811 reviews in 13 languages, labelled and turned into a panel. It needed a scraper fix: Google sends no review list for a language with no reviews, which used to crash the run.)
 - [ ] **PC.** Run the full scrape: a few hours, and it can be stopped and restarted.
 - [ ] **PC or Cowork.** Label languages and build the panel (`detect_language.py label`, then `build_panel.py`). Upload only the four aggregate files to `play_reviews/data/` (see `data/README.md`).
 - [ ] **You (library).** Re-extract AI-launch news from EMIS and ProQuest for every app. Search the app or company name plus AI terms.

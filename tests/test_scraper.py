@@ -33,6 +33,8 @@ def fake_play(monkeypatch):
         if state["interrupt_at"] == state["calls"]:
             raise KeyboardInterrupt
         lang = url.split("hl=")[1].split("&")[0]
+        if lang == "or":  # Google sends no review list for a language with no reviews; the library then fails
+            raise TypeError("object of type 'NoneType' has no len()")
         it = data.get((app_id, lang), [])
         s = int(token or 0)
         return it[s:s + count], (str(s + count) if s + count < len(it) else None)
@@ -76,3 +78,11 @@ def test_since_cutoff(tmp_path, fake_play):
     st = json.loads((out / "raw/app.a/en.state.json").read_text())
     assert st["status"] == "since_reached"
     assert st["n_saved"] < 900
+
+
+def test_language_without_reviews_and_cap(tmp_path, fake_play):
+    out = run(tmp_path, "--langs", "en,or", "--max-per-bucket", "50", "--skip-metadata")
+    st = json.loads((out / "raw/app.a/or.state.json").read_text())
+    assert st["status"] == "complete" and st["n_saved"] == 0 and "no reviews" in st["note"]
+    en = json.loads((out / "raw/app.a/en.state.json").read_text())
+    assert en["status"] == "capped" and en["n_saved"] == 50          # the cap also limits the page size

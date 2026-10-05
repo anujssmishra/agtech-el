@@ -121,4 +121,7 @@ The `indian` column is 1 for Indian languages and 0 for English. It is blank for
 
 - **Many "failed … retrying" lines.** Google is limiting requests. Stop, wait an hour, then rerun with `--delay 5`.
 - **A language shows `error` in `scrape_summary.csv`.** Rerun; that language resumes.
+- **A language shows 0 reviews with the note "no reviews in this language".** Google sends no review list for a
+  language with no reviews. If the app clearly has reviews in that language, it was a glitch: rerun that
+  language with `--refresh --only <package> --langs <code>`.
 - **The summary shows a language's oldest review much later than the app's release date.** That is all Google returned for that language.
