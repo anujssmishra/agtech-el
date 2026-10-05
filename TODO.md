@@ -24,7 +24,7 @@ Tick items as they are done.
 - [ ] **PC.** Run the full scrape: a few hours, and it can be stopped and restarted.
 - [ ] **PC or Cowork.** Label languages and build the panel (`detect_language.py label`, then `build_panel.py`). Upload only the four aggregate files to `play_reviews/data/` (see `data/README.md`).
 - [ ] **You (library).** Re-extract AI-launch news from EMIS and ProQuest for every app. Search the app or company name plus AI terms.
-- [ ] **You + Cowork.** Code the Launch log in the sampling frame. Each launch needs two sources, and 20% are double-coded. Copy the months into `data/launch_dates.csv`. Target at least 10 dated launches, ideally 15–20.
+- [ ] **You + Cowork.** Code the Launch log in the sampling frame. Each launch needs two sources, and 20% are double-coded. Copy the months into `data/launch_dates.csv`. Target at least 10 dated launches, ideally 15–20. (5 Oct 2026: leads for 41 apps in `data/launch_leads.csv`; see the `implication` column.)
 - [ ] **You.** Hand-code 600 reviews (`detect_language.py sample`, then `evaluate`). This gives the accuracy figure for the paper's appendix.
 
 ## 4. Analysis

@@ -4,6 +4,7 @@
 |---|---|---|
 | `launch_dates.csv` | One row per app (see below) | You, by hand or on GitHub |
 | `firm_events.csv` | 100 dated funding rounds, acquisitions, layoffs and shutdowns for 20 startups, each with a public news or press-release source (from the sampling frame's "Firm events" sheet, 1 Oct 2026) | Task 04 adds rows |
+| `launch_leads.csv` | Leads for the Launch log, one row per app checked (5 Oct 2026): the AI feature, the earliest dated public report found, a second source where found, whether the page was opened, and what it implies for `launch_dates.csv`. Leads only: confirm in EMIS/ProQuest before coding a launch | You (confirm and copy into the Launch log) |
 | `sampling_frame/Indian_AgTech_Sampling_Frame.xlsx` | The full sampling frame: platforms, exclusions, open checks, Launch log, firm events and overlap check | You |
 
 `launch_dates.csv` columns:
