@@ -29,6 +29,8 @@ Tick items as they are done.
 
 ## 4. Analysis
 - [x] **Cloud.** `06_main_results.md`: the main model under all four language measures, event study, placebos, and the funding-overlap robustness check. (6 Oct 2026: no detectable effect. Main measure −12.3%, randomization p = 0.60 with 1,000 draws; the placebo spread gives a 95% interval of about −45% to +39%. Robustness checks agree (−5.8% and −6.3%; leave-one-out −20% to −6%). See `results/results_summary.md`.)
+- [x] **Cloud.** Pre-registered follow-up: do Indian-language users take up AI features? (`docs/analysis_plan_ai_takeup.md`). (6 Oct 2026: AI terms appear in 0.07% of post-launch reviews; no detectable rise after launch (−0.17 pp, randomization p = 0.45) and no difference by language (−0.35 pp, p = 0.46). The registered star gap (−0.245 stars, p < 0.001) disappears once review length is held fixed (exploratory). See `results/ai_takeup/findings.md`.)
+- [ ] **You.** Hand-code the 283 reviews in `play_reviews/data/ai_mention_validation.csv` (column `human_mentions_ai`; hide the columns after `human_note`). This gives the precision and recall of the AI-mention measure by language.
 - [ ] **Cloud (optional).** Placebo launches using non-AI product launches from the Launch log, and heterogeneity by app type.
 
 ## 5. Write and submit

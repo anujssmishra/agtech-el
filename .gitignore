@@ -6,6 +6,7 @@ play_reviews/data/*
 !play_reviews/data/apps_metadata.csv
 !play_reviews/data/scrape_summary.csv
 !play_reviews/data/validation_report.txt
+!play_reviews/data/ai_mentions_app_lang_month.csv
 play_reviews/test_data/
 
 # The same files wherever --out points
@@ -14,6 +15,7 @@ raw/
 reviews_raw*.csv
 reviews_lang*.csv
 validation_sample*.csv
+ai_mention_validation*.csv
 
 # Simulated data and dry-run outputs (rebuilt by analysis/simulate_panel.py and estimate.py)
 data/sim/

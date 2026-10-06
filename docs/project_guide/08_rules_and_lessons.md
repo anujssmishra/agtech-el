@@ -4,7 +4,8 @@
 
 1. **The repository stays private.** Never commit review text, reviewer names, or raw or labelled review
    files. The only data files that go to git are the aggregates: `panel_app_lang_month.csv`,
-   `app_month.csv`, `apps_metadata.csv`, `scrape_summary.csv` and `validation_report.txt`. `.gitignore`
+   `app_month.csv`, `apps_metadata.csv`, `scrape_summary.csv`, `validation_report.txt` and
+   `ai_mentions_app_lang_month.csv` (counts of reviews mentioning AI, no text). `.gitignore`
    enforces this; do not weaken it.
 2. **Sources.** Do not use Tracxn, Crunchbase, PitchBook, CB Insights or Dataful pages or exports as sources
    or inputs (their terms bar reuse or automated access). Firm events cite public news articles or press

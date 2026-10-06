@@ -128,4 +128,28 @@ so and treats H2 with caution.
 
 ## Deviations
 
-None so far.
+Recorded 6 October 2026, after the analysis was run once.
+
+1. **Aggregate file.** Besides review and mention counts, `ai_mentions_app_lang_month.csv` stores the sum and
+   number of star ratings (needed for H3) and both language labels (`lang` and `lang_main`, needed for
+   robustness check 2). It holds no text.
+2. **Estimation on cell means.** The review-level linear probability models are estimated as weighted least
+   squares on app × month × language cell means, weighted by the number of reviews. Point estimates are
+   identical to the review-level regression. Clustered standard errors differ only by the small-sample
+   degrees-of-freedom factor.
+3. **Decision rule.** M1 matched 26 reviews in treated apps after launch, so M2 became the primary outcome.
+   The count is the same (26) whether or not reviews of undetermined language are included.
+4. **Validation sample.** The plan described a sample of M1 matches. Because the decision rule made M2
+   primary, the sample is drawn from M2 matches and from post-launch non-matches. It is drawn from the
+   estimation sample: the 17 apps, up to each `panel_end`. Only 58 Indian-language M2 matches exist there, so
+   all 58 are included, giving 283 reviews instead of 300. The file also marks M1 matches, so M1 precision
+   can be computed on the M1 matches within the sample.
+5. **Poisson version of H2.** As in `estimate.py`, the Poisson check drops app × language, app × month and
+   language × month groups with no mentions, which carry no information in that model. That leaves 26,777
+   reviews from 15 apps.
+6. **Additions, labelled exploratory.**
+   - `results/ai_takeup/term_counts.csv`: how many reviews each keyword matches. This is a diagnostic only.
+   - A check of H3 for review length (`analysis/ai_takeup.py explore-h3`). It was designed after the
+     registered H3 estimate had been seen, and its two versions were fixed before it was run:
+     - (a) adding review-length fixed effects (1, 2, 3–5, 6–10, 11–20 and 21+ words);
+     - (b) using only reviews of at least 5 words.

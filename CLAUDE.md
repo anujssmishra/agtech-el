@@ -19,7 +19,7 @@ The author is Anuj (IIM Lucknow). Write for an economist reader: plain language,
 - `TODO.md`: the shared to-do list. `cloud_tasks/` holds one instruction file per task.
 
 ## Rules
-1. **The repository stays private.** Never commit review text, reviewer names or raw or labelled review files; `.gitignore` keeps them out. The only data files that go to git are aggregates: `panel_app_lang_month.csv`, `app_month.csv`, `apps_metadata.csv`, `scrape_summary.csv` and `validation_report.txt`.
+1. **The repository stays private.** Never commit review text, reviewer names or raw or labelled review files; `.gitignore` keeps them out. The only data files that go to git are aggregates: `panel_app_lang_month.csv`, `app_month.csv`, `apps_metadata.csv`, `scrape_summary.csv`, `validation_report.txt` and `ai_mentions_app_lang_month.csv` (counts of reviews mentioning AI; added with the take-up plan, 6 Oct 2026).
 2. **Sources.** Do not use Tracxn, Crunchbase, PitchBook, CB Insights or Dataful pages or exports as sources or inputs: their terms bar reuse or automated access. Firm events must cite public news articles or press releases.
 3. **Method changes.** Do not change the estimating equation, the language-labelling rules or `lexicons.py` without stating the change in the task summary. Run `python -m pytest -q` after any code change.
 4. **Network.** The default network (Trusted) cannot reach Google Play. Scraping needs the environment set to Custom with `play.google.com` allowed (or Full). Keep the scraper's default `--delay 2`.

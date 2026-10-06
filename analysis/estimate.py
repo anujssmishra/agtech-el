@@ -185,7 +185,7 @@ def save_figure(fig, path):
     fig.savefig(Path(path).with_suffix(".pdf"))
 
 
-def plot_event(es, path):
+def plot_event(es, path, ylabel="Effect on Indian-language\nreviews (log points)"):
     """Quarterly effects with 95% intervals; black and white, one journal column wide."""
     import matplotlib
     matplotlib.use("Agg")
@@ -206,13 +206,13 @@ def plot_event(es, path):
                     fontsize=6.5, color="0.3")
         ax.set_xticks(qs, labels)
         ax.set_xlabel("Quarters since AI launch")
-        ax.set_ylabel("Effect on Indian-language\nreviews (log points)")
+        ax.set_ylabel(ylabel)
         fig.tight_layout(pad=0.3)
         save_figure(fig, path)
         plt.close(fig)
 
 
-def plot_placebo(pl, beta, path, p_ri=None):
+def plot_placebo(pl, beta, path, p_ri=None, xlabel="Placebo estimate (log points)"):
     """Histogram of placebo estimates with the actual estimate marked; one journal column wide."""
     import matplotlib
     matplotlib.use("Agg")
@@ -229,7 +229,7 @@ def plot_placebo(pl, beta, path, p_ri=None):
                     textcoords="offset points", ha="right" if left else "left", va="top", fontsize=7)
         if p_ri is not None:  # above the plot, so it never collides with the bars or the label
             ax.set_title(f"Randomization-inference p = {p_ri:.3f} ({len(pl):,} placebo draws)", fontsize=7, loc="right", pad=3)
-        ax.set_xlabel("Placebo estimate (log points)")
+        ax.set_xlabel(xlabel)
         ax.set_ylabel("Placebo draws")
         fig.tight_layout(pad=0.3)
         save_figure(fig, path)

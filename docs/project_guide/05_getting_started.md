@@ -67,8 +67,9 @@ python build_panel.py                  # -> data/panel_app_lang_month.csv and da
 cd ..
 ```
 
-Only four aggregate files may go to GitHub: `panel_app_lang_month.csv`, `app_month.csv`,
-`apps_metadata.csv`, `scrape_summary.csv` (plus `validation_report.txt` after the hand check). `.gitignore`
+Only aggregate files may go to GitHub: `panel_app_lang_month.csv`, `app_month.csv`,
+`apps_metadata.csv`, `scrape_summary.csv`, `ai_mentions_app_lang_month.csv` (from
+`analysis/ai_takeup.py aggregate`) and `validation_report.txt` after the hand check. `.gitignore`
 blocks everything else in `play_reviews/data/`.
 
 ### A6. Hand-check 600 language labels

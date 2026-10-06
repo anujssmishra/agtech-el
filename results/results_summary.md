@@ -110,3 +110,13 @@ rise after launch.
 - **What Google Play shows.** Reviews carry their last-edit date, not the original date; only reviews with
   text are returned; apps already removed from the store could not be scraped (survivorship); BharatAgri's
   panel ends in October 2025, when the company shut down.
+
+## Follow-up: do Indian-language users take up AI features? (6 Oct 2026)
+
+A pre-registered follow-up (`docs/analysis_plan_ai_takeup.md`) asked whether reviews mention AI more after a
+launch, and whether that rise differs by language. Explicit AI terms appear in only 26 of 34,868 post-launch
+reviews of treated apps (0.07%). Neither the rise after launch (−0.17 percentage points, randomization
+p = 0.45) nor the Indian-minus-English difference (−0.35 pp, p = 0.46) is detectable. Indian-language reviews
+give 0.245 fewer stars than English reviews of the same app and month (p < 0.001), but in an exploratory
+check this gap disappears once review length is held fixed (+0.002 stars). Details:
+`results/ai_takeup/findings.md`.
