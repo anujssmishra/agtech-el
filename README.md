@@ -8,6 +8,7 @@ Claude follows in this repository are in `CLAUDE.md`. Review text never goes to 
 | `play_reviews/` | Google Play scraper, language labeller, panel builder (see its README) |
 | `analysis/` | Main estimates, event study and placebos (`estimate.py`); simulated data and power analysis |
 | `data/` | Launch dates (edit by hand), funding and acquisition events, the sampling frame workbook |
+| `docs/project_guide/` | Start here if you are new: the idea, what you need, setup, data, method, status and rules |
 | `cloud_tasks/` | One instruction file per Claude Code cloud task |
 | `tests/` | Checks for all of the above: `python -m pytest -q` |
 | `scripts/cloud_setup.sh` + `.claude/settings.json` | Install packages and the language model in each cloud session (`scripts/claude_settings.json` is a visible copy of the settings file) |
