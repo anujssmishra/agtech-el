@@ -28,7 +28,7 @@ Tick items as they are done.
 - [ ] **You.** Hand-code 600 reviews (`detect_language.py sample`, then `evaluate`). This gives the accuracy figure for the paper's appendix. (6 Oct 2026: the 600-review sample was sent to you as `validation_sample.csv`.)
 
 ## 4. Analysis
-- [ ] **Cloud.** `06_main_results.md`: the main model under all four language measures, event study, placebos, and the funding-overlap robustness check.
+- [x] **Cloud.** `06_main_results.md`: the main model under all four language measures, event study, placebos, and the funding-overlap robustness check. (6 Oct 2026: no detectable effect. Main measure −12.3%, randomization p = 0.60 with 1,000 draws; the placebo spread gives a 95% interval of about −45% to +39%. Robustness checks agree (−5.8% and −6.3%; leave-one-out −20% to −6%). See `results/results_summary.md`.)
 - [ ] **Cloud (optional).** Placebo launches using non-AI product launches from the Launch log, and heterogeneity by app type.
 
 ## 5. Write and submit
