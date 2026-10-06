@@ -20,12 +20,12 @@ Tick items as they are done.
 - [ ] **You.** Clear the 20 "Check first" apps and the 7 open checks in the sampling frame. Update `include` in `data/launch_dates.csv`.
 
 ## 3. Collect the data
-- [ ] **PC.** Do the setup and the 2-minute test scrape (AgroStar), as in `play_reviews/README.md`. Or, in the cloud, use `05_scrape_in_cloud.md` with the network set to Custom plus `play.google.com`. (5 Oct 2026: cloud test scrape of AgroStar works: 811 reviews in 13 languages, labelled and turned into a panel. It needed a scraper fix: Google sends no review list for a language with no reviews, which used to crash the run.)
-- [ ] **PC.** Run the full scrape: a few hours, and it can be stopped and restarted.
-- [ ] **PC or Cowork.** Label languages and build the panel (`detect_language.py label`, then `build_panel.py`). Upload only the four aggregate files to `play_reviews/data/` (see `data/README.md`).
+- [x] **PC.** Do the setup and the 2-minute test scrape (AgroStar), as in `play_reviews/README.md`. Or, in the cloud, use `05_scrape_in_cloud.md` with the network set to Custom plus `play.google.com`. (5 Oct 2026: cloud test scrape of AgroStar works: 811 reviews in 13 languages, labelled and turned into a panel. It needed a scraper fix: Google sends no review list for a language with no reviews, which used to crash the run.)
+- [x] **PC.** Run the full scrape: a few hours, and it can be stopped and restarted. (6 Oct 2026: done in the cloud instead: 181,276 reviews from 46 apps (CottonAce has none); all 611 app × language combinations finished with no failed requests; counts match Google Play's own review counts.)
+- [x] **PC or Cowork.** Label languages and build the panel (`detect_language.py label`, then `build_panel.py`). Upload only the four aggregate files to `play_reviews/data/` (see `data/README.md`). (6 Oct 2026: done in the cloud; Indian-language share 17.9% (main measure); the four aggregate files are committed. Raw and labelled reviews stayed on the cloud machine and are lost when the session ends.)
 - [ ] **You (library).** Re-extract AI-launch news from EMIS and ProQuest for every app. Search the app or company name plus AI terms.
 - [ ] **You + Cowork.** Code the Launch log in the sampling frame. Each launch needs two sources, and 20% are double-coded. Copy the months into `data/launch_dates.csv`. Target at least 10 dated launches, ideally 15–20. (5 Oct 2026: leads for 41 apps in `data/launch_leads.csv`; see the `implication` column.)
-- [ ] **You.** Hand-code 600 reviews (`detect_language.py sample`, then `evaluate`). This gives the accuracy figure for the paper's appendix.
+- [ ] **You.** Hand-code 600 reviews (`detect_language.py sample`, then `evaluate`). This gives the accuracy figure for the paper's appendix. (6 Oct 2026: the 600-review sample was sent to you as `validation_sample.csv`.)
 
 ## 4. Analysis
 - [ ] **Cloud.** `06_main_results.md`: the main model under all four language measures, event study, placebos, and the funding-overlap robustness check.
