@@ -9,7 +9,7 @@ gaps:
   passed 50%.
 - Animall: any acquisitions.
 
-1. Read CLAUDE.md (rule 2: public news or press releases; Tracxn and DATAFUL allowed under the author's written permission since 7 Oct 2026; never Crunchbase, PitchBook or CB Insights).
+1. Read CLAUDE.md (rule 2: public news or press releases; IIM Lucknow databases allowed under the author's written permission since 7 Oct 2026; never Crunchbase, PitchBook or CB Insights).
 2. If this session has no web search or fetch, stop and say so.
 3. For each gap, find the first public report. Add rows with the same columns as the existing file:
    package, app, company, event, first_reported (YYYY-MM-DD), event_month (YYYY-MM), event_month_basis,

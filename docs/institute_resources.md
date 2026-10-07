@@ -2,9 +2,10 @@
 
 Checked 7 October 2026 against the IIM Libraries Consortium list for IIM Lucknow
 (<https://iimlibrariesconsortium.in/eresources.html>, institute filter "IIM Lucknow"): 113 e-resources. All need
-campus or VPN login, so Claude cannot open them. Use them by hand, under each licence. **Do not scrape them, and do
-not put licensed microdata in the replication package**; the data availability statement must say how others can
-obtain access.
+campus or VPN login, so Claude cannot open them; the author exports what is needed. **The author holds written
+permission to publish from every database on this list (7 Oct 2026; CLAUDE.md rule 2).** Use each as its permission
+allows, cite it with the access date, and put raw extracts in git or the replication package only where the
+permission covers redistribution. The data availability statement should cite the permissions.
 
 ## The most useful: CMIE Consumer Pyramids dx (CPHS)
 
@@ -31,18 +32,18 @@ design like this:
 - **Timing:** before and after 2022.
 - **Dose:** the drop in beneficiaries in each state, from the parliament answers (PIB release 1941402).
 
-Licence: CMIE academic terms. The microdata cannot be redistributed.
+Permission: covered by the author's written permission; check whether it extends to redistributing the microdata.
 
 ## Platform side: funding rounds, acquisitions, company financials
 
 | Resource | Use | Notes |
 |---|---|---|
-| Venture Intelligence (Private Equity deal database; M&A deal database) | Dated funding rounds and acquisitions for Indian agtech firms; cross-check `data/firm_events.csv` | Check the terms before use; extract by hand |
-| LSEG SDC Platinum / LSEG Workspace | Global M&A and venture deals that include India | Licensed |
-| PrivateCircle | Private Indian companies: funding and financials from company filings (MCA) | Check the terms |
+| Venture Intelligence (Private Equity deal database; M&A deal database) | Dated funding rounds and acquisitions for Indian agtech firms; cross-check `data/firm_events.csv` | Covered by the written permission |
+| LSEG SDC Platinum / LSEG Workspace | Global M&A and venture deals that include India | Covered by the written permission |
+| PrivateCircle | Private Indian companies: funding and financials from company filings (MCA) | Covered by the written permission |
 | CMIE Prowess dx, ORBIS, Capitaline, ACE Knowledge Portal | Revenue, advertising and marketing spending and staff costs of the larger agtech firms. With review-based user growth, these give rough spending per new user | Coverage of unlisted startups to be checked |
-| Tracxn | Funding rounds, acquisitions, startup profiles and competitor sets for Indian agtech; can fill gaps in `data/firm_events.csv` | Allowed: the provider gave the author written permission to publish (CLAUDE.md rule 2, 7 Oct 2026). Use as that permission allows; cite Tracxn and the access date |
-| DATAFUL | Indian public datasets in ready-to-use form (state and district series) | Allowed on the same basis as Tracxn |
+| Tracxn | Funding rounds, acquisitions, startup profiles and competitor sets for Indian agtech; can fill gaps in `data/firm_events.csv` | Covered by the written permission; cite Tracxn and the access date |
+| DATAFUL | Indian public datasets in ready-to-use form (state and district series) | Covered by the written permission |
 
 ## News archives: dating launches, campaigns and acquisitions, and firms' claimed user numbers
 
