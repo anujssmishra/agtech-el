@@ -120,3 +120,11 @@ p = 0.45) nor the Indian-minus-English difference (−0.35 pp, p = 0.46) is dete
 give 0.245 fewer stars than English reviews of the same app and month (p < 0.001), but in an exploratory
 check this gap disappears once review length is held fixed (+0.002 stars). Details:
 `results/ai_takeup/findings.md`.
+
+## New main question: do apps answer Indian-language reviews less often? (7 Oct 2026)
+
+A second pre-registered analysis (`docs/analysis_plan_replies.md`) is now the paper's main question. Apps
+answer Indian-language reviews almost as often as English ones: −0.57 percentage points on a 54.6% base
+(95% CI −1.41 to +0.27, p = 0.18), about −0.9 pp with more flexible controls. They reply equally fast, but one
+in three replies to an Indian-language review is in English. Three apps have gaps of 10–25 pp. AI launches do
+not change the gap (randomization p = 0.86). Details: `results/replies/findings.md`.

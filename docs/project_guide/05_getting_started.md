@@ -69,7 +69,7 @@ cd ..
 
 Only aggregate files may go to GitHub: `panel_app_lang_month.csv`, `app_month.csv`,
 `apps_metadata.csv`, `scrape_summary.csv`, `ai_mentions_app_lang_month.csv` (from
-`analysis/ai_takeup.py aggregate`) and `validation_report.txt` after the hand check. `.gitignore`
+`analysis/ai_takeup.py aggregate`), `replies_app_lang_month.csv` (from `analysis/replies.py aggregate`) and `validation_report.txt` after the hand check. `.gitignore`
 blocks everything else in `play_reviews/data/`.
 
 ### A6. Hand-check 600 language labels

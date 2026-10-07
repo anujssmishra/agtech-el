@@ -154,4 +154,39 @@ gives the same point estimates as the review-level regression.
 
 ## Deviations
 
-None so far.
+Recorded 7 October 2026, after the analysis was run once.
+
+1. **R3's registered outcome cannot answer R3 (a design error in this plan).**
+   - For an Indian-language review, `matched` = 1 when the reply is in an Indian language. For an English
+     review, it = 1 when the reply is in English.
+   - The within-app gap in `matched` therefore equals P(Indian-language reply | Indian review) + P(Indian-language
+     reply | English review) − 1. That is a measure of the app's *default* reply language, not of whether it
+     switches to the farmer's language.
+   - An app that replies in Hindi to everyone shows a gap of about +100 pp (Animall: +98); one that replies in
+     English to everyone shows about −100 pp. Averaging such apps gives the 95% interval of −64 to +70 pp.
+   - R3 is still reported as registered, with this explanation.
+   - The registered descriptive shares (replies in an Indian language; replies in the review's own language)
+     are unaffected.
+2. **R3b, added as exploratory.**
+   - Outcome: `reply_indian`, with the same equation and sample as R3. It measures how much more likely a reply is
+     to be in an Indian language when the review is in one.
+   - It was defined after the R3 estimate and the app-level shares of Indian-language replies had been seen.
+3. **Heterogeneity.**
+   - "Where samples allow" was implemented as: a subgroup is estimated if it has at least 100 Indian-language
+     observations for that outcome. No subgroup fell below this.
+   - For splits that apply to both languages (app type, star group), all fixed effects are interacted with the
+     group, so each estimate equals the estimate from that subsample alone.
+   - Hindi vs other Indian languages, and Indian-script vs romanized reviews, are each compared with all English
+     reviews in one regression.
+   - The "groups equal" p-values are Wald tests that use the app-clustered covariance.
+4. **Robustness 8 (Poisson).** App-months with no reply are dropped, because they carry no information in that
+   model.
+5. **Robustness 10 (app by app).** Within one app, standard errors are clustered by month.
+6. **Estimation on cell means**, as in the take-up plan. Point estimates are identical to the review-level
+   regression; clustered standard errors differ only by the small-sample degrees-of-freedom factor.
+7. **Reply window.**
+   - It is computed from the earliest scrape time (6 October 2026, 04:28 Indian time).
+   - Reviews from 31 August had 35.2 days to receive a reply.
+   - A reply that is only whitespace counts as no reply.
+   - Replies are labelled with the same settings as the reviews: IndicLID's native-script model, without its
+     romanized model.

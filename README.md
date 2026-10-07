@@ -1,12 +1,14 @@
 # AgTech AI and vernacular users: Economics Letters project
 
-Code, small data files and task instructions for the paper. The to-do list is `TODO.md`. The rules
+Code, small data files and task instructions for the paper. The main question (since 7 October 2026) is whether
+Indian agtech apps answer farmers who write in an Indian language less often, more slowly or not in their language
+(`docs/analysis_plan_replies.md`); the original question on AI and reviewer composition is now secondary. The to-do list is `TODO.md`. The rules
 Claude follows in this repository are in `CLAUDE.md`. Review text never goes to GitHub.
 
 | Folder | Contents |
 |---|---|
 | `play_reviews/` | Google Play scraper, language labeller, panel builder (see its README) |
-| `analysis/` | Main estimates, event study and placebos (`estimate.py`); simulated data and power analysis |
+| `analysis/` | Reply gaps (`replies.py`, main question); AI and reviewer composition (`estimate.py`); AI mentions (`ai_takeup.py`); simulated data and power analysis |
 | `data/` | Launch dates (edit by hand), funding and acquisition events, the sampling frame workbook |
 | `docs/project_guide/` | Start here if you are new: the idea, what you need, setup, data, method, status and rules |
 | `cloud_tasks/` | One instruction file per Claude Code cloud task |
