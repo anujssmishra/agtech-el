@@ -1,9 +1,9 @@
 # Analysis plan: do agtech apps answer Indian-language farmers less often?
 
-**Status: draft for the author's sign-off, 7 October 2026. No outcome in this plan has been computed.** The
-plan counts as registered from the commit whose message begins "Register analysis plan: replies". It is
-committed before the analysis code is written or run. Any change after registration goes in the "Deviations"
-section at the end, with the reason.
+**Registered 7 October 2026, approved by the author, before any outcome below was computed.** The commit
+whose message begins "Register analysis plan: replies" is the registration record; the analysis code is
+written and run after it. Any change after registration goes in the "Deviations" section at the end, with
+the reason.
 
 ## Why this question
 
