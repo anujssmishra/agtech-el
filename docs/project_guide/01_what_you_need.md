@@ -9,7 +9,7 @@ A checklist. Items marked **essential** are needed for the core pipeline; the re
 | **GitHub account** (essential) | The code and aggregate data live in the private repository `anujssmishra/agtech-el` | Free. The owner must add you as a collaborator. Keep the repository private. |
 | **Claude Pro, Max, Team or Enterprise plan** | To run the "cloud tasks" with Claude Code on the web (claude.ai/code) | Optional if you run everything yourself. Sign in with GitHub and install the Claude GitHub app on the repository. |
 | **University library access to EMIS and ProQuest** (essential for launch dating) | AI-launch dates are coded from news archives; each launch needs two sources | IIM Lucknow access was used. Searches must be done by hand under the databases' terms. |
-| **Tracxn** (optional) | Leads on funding rounds and acquisitions | Only by hand, as leads. Tracxn, Crunchbase, PitchBook, CB Insights and Dataful may **never** be cited or used as inputs: their terms bar reuse. Every firm event must cite a public news article or press release. |
+| **Tracxn** and **DATAFUL** (optional) | Funding rounds, acquisitions and startup profiles | May be cited and used as inputs: their providers gave the author written permission to publish (7 Oct 2026). Use them as that permission allows. Crunchbase, PitchBook and CB Insights may **never** be cited or used as inputs: their terms bar reuse. |
 | **Journal account** (at the end) | Submission to *Economics Letters* (Elsevier) | Submission fee USD 125. |
 
 ## Computer and software

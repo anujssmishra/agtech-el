@@ -59,7 +59,7 @@ Sample: 17 apps (10 with a dated AI launch, 7 comparison apps), 94,222 reviews, 
 | Author | Hand-code the 600-review sample and run `detect_language.py evaluate` |
 | Author (library) | Confirm launch leads in EMIS/ProQuest; two sources per launch; 20% double-coded; aim for 15–20 dated launches |
 | Author | Clear the remaining "check first" apps and open checks in the sampling frame; update `include` |
-| Author (by hand) | Check the 33 Tracxn event leads; any event used must cite public news |
+| Author (by hand) | Check the 33 Tracxn event leads; events may now cite Tracxn (written permission, 7 Oct 2026) |
 | Author | Second sources still needed: BigHaat (2023-03), Cropwise Grower (2022-11) |
 | Cloud (optional) | Placebo launches using non-AI product launches; heterogeneity by app type |
 | Cloud | Task 07: draft the manuscript (at most 2,000 words; abstract, highlights, keywords, JEL codes, data statement) |

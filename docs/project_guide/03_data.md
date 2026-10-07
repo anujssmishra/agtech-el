@@ -85,5 +85,6 @@ repository; review text never is.
   20 startups, each with the first public news report, the month, the amount as reported and the source URL.
 - **Use:** `estimate.py --exclude-overlap 3` drops treated apps with an event within 3 months of the AI launch
   (only BharatAgri at present: a funding round two months after its launch).
-- **Sources:** public news and press releases only (Entrackr, Inc42, YourStory, Business Standard,
-  company releases). Never Tracxn, Crunchbase, PitchBook, CB Insights or Dataful.
+- **Sources:** public news and press releases (Entrackr, Inc42, YourStory, Business Standard, company
+  releases), and Tracxn or DATAFUL under the author's written permission to publish (7 Oct 2026). Never
+  Crunchbase, PitchBook or CB Insights.

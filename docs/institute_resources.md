@@ -41,7 +41,8 @@ Licence: CMIE academic terms. The microdata cannot be redistributed.
 | LSEG SDC Platinum / LSEG Workspace | Global M&A and venture deals that include India | Licensed |
 | PrivateCircle | Private Indian companies: funding and financials from company filings (MCA) | Check the terms |
 | CMIE Prowess dx, ORBIS, Capitaline, ACE Knowledge Portal | Revenue, advertising and marketing spending and staff costs of the larger agtech firms. With review-based user growth, these give rough spending per new user | Coverage of unlisted startups to be checked |
-| Tracxn, DATAFUL | Not to be used | Excluded by CLAUDE.md rule 2 (their terms bar reuse) |
+| Tracxn | Funding rounds, acquisitions, startup profiles and competitor sets for Indian agtech; can fill gaps in `data/firm_events.csv` | Allowed: the provider gave the author written permission to publish (CLAUDE.md rule 2, 7 Oct 2026). Use as that permission allows; cite Tracxn and the access date |
+| DATAFUL | Indian public datasets in ready-to-use form (state and district series) | Allowed on the same basis as Tracxn |
 
 ## News archives: dating launches, campaigns and acquisitions, and firms' claimed user numbers
 

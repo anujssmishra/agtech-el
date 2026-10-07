@@ -65,7 +65,7 @@ prerequisites are in `cloud_tasks/README.md` and `TODO.md`.
 ## What stays off the cloud
 - **Google Play scraping** on the default network. Run it on your PC (`play_reviews/README.md`), or use the
   Custom network above.
-- **EMIS, ProQuest, Tracxn and Dataful.** These need campus access and must be used by hand under their terms.
+- **EMIS, ProQuest, Tracxn and Dataful.** These need campus access. EMIS and ProQuest are used by hand under their terms; Tracxn and DATAFUL may be cited and used as inputs under the author's written permission to publish (CLAUDE.md rule 2).
 - **Hand-checking 600 review labels.**
 
 ## Getting your data in

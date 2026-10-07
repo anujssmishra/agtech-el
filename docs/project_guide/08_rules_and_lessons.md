@@ -8,9 +8,10 @@
    `ai_mentions_app_lang_month.csv` (counts of reviews mentioning AI) and `replies_app_lang_month.csv` (counts of
    reviews and developer replies); none holds text. `.gitignore`
    enforces this; do not weaken it.
-2. **Sources.** Do not use Tracxn, Crunchbase, PitchBook, CB Insights or Dataful pages or exports as sources
-   or inputs (their terms bar reuse or automated access). Firm events cite public news articles or press
-   releases.
+2. **Sources.** Tracxn and DATAFUL may be used and cited: their providers gave the author written permission
+   to publish (7 Oct 2026). Use them as that permission allows, and name them and the access date as the
+   source. Crunchbase, PitchBook and CB Insights stay excluded (their terms bar reuse or automated access).
+   Other firm events cite public news articles or press releases.
 3. **Method changes.** Do not change the estimating equation, the language-labelling rules or `lexicons.py`
    without stating the change. Run `python -m pytest -q` after any code change.
 4. **Network.** Scraping needs Google Play reachable; keep the scraper's default `--delay 2`.
