@@ -6,7 +6,7 @@ agstack.gramophone,Gramophone,Comparison (no AI found),,1,2023-06,,Comparison ap
 com.leanagri.leannutri,BharatAgri,Treated (date known),2023-08,1,2025-10,,Dated Aug 2023; confirm. Panel ends 2025-10 (company shut Nov 2025; app later run by Kisanwala)
 com.agribegri,AgriBegri,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
 com.criyagen,AgriApp,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
-farmstock.agriculture.plants.kisan.krishi,Krishify,Treated (date known),2021-12,1,,,Dec 2021 (frame); AgriTimes item suggests Jan 2022; confirm
+farmstock.agriculture.plants.kisan.krishi,Krishify,Treated (date known),2023-01,1,,https://www.itvoice.in/krishify-launches-bhoomi-ai-driven-chatbot-for-the-indian-farmers,"Bhoomi GPT-3 chatbot launched 12 Jan 2023 (IT Voice; AgriTimes). Was 2021-12, which rested on a Dec 2021 feature article (changed 5 Oct 2026; see launch_leads.csv)"
 com.peat.GartenBank,Plantix,AI from launch (exclude from main estimate),,0,,,AI from day one: no before-period; keep out of the main estimate
 com.wolkus.fasalapp,Fasal,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
 com.kissangpt,KissanAI,AI from launch (exclude from main estimate),,0,,,AI from day one: no before-period; keep out of the main estimate
@@ -16,7 +16,7 @@ com.ninja.kisaan,Ninja Kisan (Ninjacart),Check first,,0,,,"Check first: resolve 
 com.agribazaarapp,AgriBazaar,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
 in.animall.android,Animall,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
 com.sirpi.dvaracattlehealth,Dvara Surabhi,Treated (date known),2021-06,1,,,Dated Jun 2021; confirm
-org.cari.farm_mojo,Dr.Grow (Aquaconnect),Treated (date known),2019-05,1,,,Dated May 2019; confirm
+org.cari.farm_mojo,Dr.Grow (Aquaconnect),AI from launch (exclude from main estimate),,0,,https://www.outlookbusiness.com/enterprise/big-idea/shrimp-farmer-finds-mojo-5654,"FarmMOJO used AI from its 2017 launch (Outlook Business, 10 Feb 2020); the old 2019-05 date was a feature article (changed 5 Oct 2026)"
 com.tractorjunction,TractorJunction,Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
 com.khetigaadi,KhetiGaadi,Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
 com.fyllo.fyllo,Fyllo,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
@@ -31,11 +31,11 @@ com.prompt.ma.maapplicationfinalAmul,Amul Farmers App,Treated (date known),2026-
 com.aas.meghdoot,Meghdoot,Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
 com.kisansarthi.farmer,Kisan Sarathi,Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
 in.gov.enam,eNAM,Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
-agri.tnagri,Uzhavan (UZHAVAR),Comparison (no AI found),,1,,,Comparison app: leave the date blank unless AI is found
+agri.tnagri,Uzhavan (UZHAVAR),Treated (date known),2020-02,1,,https://www.business-standard.com/article/technology/tamil-nadu-s-leap-into-ai-blockchain-to-help-the-state-with-better-service-120020502136_1.html,"TNeGA AI pest identification in the app, 'started rolling out' by 5 Feb 2020 (Business Standard); piloted for paddy and maize (IndiaAI, Aug 2020). Was a comparison app (changed 5 Oct 2026)"
 com.dfs.biharkrishi,Bihar Krishi,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
 com.vassar.aims,KATHIR,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
 in.gov.mahapocra.mahavistaarai,MahaVISTAAR-AI,AI from launch (exclude from main estimate),,0,,,AI from day one: no before-period; keep out of the main estimate
-com.nic.project.pmkisan,PMKISAN GoI,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
+com.nic.project.pmkisan,PMKISAN GoI,Treated (date known),2023-09,1,,https://newsonair.gov.in/union-minister-kailash-choudhary-launches-pm-kisan-ai-chatbot-kisan-e-mitra-in-new-delhi,"Kisan e-Mitra AI chatbot launched 21 Sep 2023. UNCONFIRMED: check that the chatbot is inside this app, not only the PM-KISAN website (added 5 Oct 2026)"
 org.digitalgreen.farmer.chat,Farmer.Chat,AI from launch (exclude from main estimate),,0,,,AI from day one: no before-period; keep out of the main estimate
 com.vistaar.gov.in,Bharat-VISTAAR,AI from launch (exclude from main estimate),,0,,,AI from day one: no before-period; keep out of the main estimate
 in.farmguide.farmerapp.central,PMFBY Crop Insurance,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
@@ -44,5 +44,5 @@ com.salamkisan,Salam Kisan,Check first,,0,,,"Check first: resolve AI status and 
 com.GrainbankFarmer.app,GrainBank Farmer (Ergos),Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
 com.coromandel.gromor,MyGromor,Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
 com.ecozen.ecotron.app,ecotron (Ecozen),Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"
-com.syngenta.growerconnectapp,Cropwise Grower (Syngenta),Treated (date needed),,0,,,"Find the launch month, then set include=1"
+com.syngenta.growerconnectapp,Cropwise Grower (Syngenta),Treated (date known),2022-11,1,,https://news.agropages.com/News/NewsDetail---44695.htm,"Crop Doctor, 'an AI-powered tool', announced 21 Nov 2022 (AgroPages). Second source still needed (added 5 Oct 2026)"
 com.absolutefoods.igrow,UPAJ (Absolute),Check first,,0,,,"Check first: resolve AI status and package, then set include=1 (with a date if treated)"

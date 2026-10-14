@@ -1,0 +1,71 @@
+list,term,app,english,indian,other
+M1,AI (capitals),all,24,6,1
+M1,a.i.,all,0,0,0
+M1,artificial intelligence,all,7,0,0
+M1,artificial inteligence,all,0,0,0
+M1,chatbot,all,15,0,0
+M1,chat bot,all,6,0,0
+M1,chat-bot,all,0,0,0
+M1,bot,all,11,3,0
+M1,gpt,all,1,1,0
+M1,chatgpt,all,1,1,0
+M1,chat gpt,all,1,1,0
+M1,virtual assistant,all,0,0,0
+M1,voice assistant,all,0,0,0
+M1,digital assistant,all,0,0,0
+M1,machine learning,all,1,0,0
+M1,एआई,all,0,0,0
+M1,ए आई,all,0,0,0
+M1,ए.आई,all,0,0,0
+M1,आर्टिफिशियल,all,0,0,0
+M1,कृत्रिम बुद्धिमत्ता,all,0,0,0
+M1,चैटबॉट,all,0,0,0
+M1,चैट बॉट,all,0,1,0
+M1,चॅटबॉट,all,0,1,0
+M1,बॉट,all,0,3,0
+M1,એઆઈ,all,0,0,0
+M1,এআই,all,0,0,0
+M1,ஏஐ,all,0,0,0
+M1,ఏఐ,all,0,0,0
+M1,ಎಐ,all,0,0,0
+M1,എഐ,all,0,0,0
+M1,ਏਆਈ,all,0,0,0
+M1,ଏଆଇ,all,0,0,0
+M1,اے آئی,all,0,0,0
+M1,crop doctor,com.BigHaat,14,1,0
+M1,crop doctor,com.syngenta.growerconnectapp,4,0,0
+M1,krishi mitra,com.itc.maars,0,0,0
+M1,कृषि मित्र,com.itc.maars,0,0,0
+M1,sarlaben,com.prompt.ma.maapplicationfinalAmul,1,0,0
+M1,sarla ben,com.prompt.ma.maapplicationfinalAmul,0,0,0
+M1,सरलाबेन,com.prompt.ma.maapplicationfinalAmul,0,0,0
+M1,સરલાબેન,com.prompt.ma.maapplicationfinalAmul,0,0,0
+M1,kisan e-mitra,com.nic.project.pmkisan,0,0,0
+M1,kisan e mitra,com.nic.project.pmkisan,0,0,0
+M1,kisan emitra,com.nic.project.pmkisan,0,0,0
+M1,किसान ई-मित्र,com.nic.project.pmkisan,0,0,0
+M1,किसान ई मित्र,com.nic.project.pmkisan,0,0,0
+M1,e-tag,com.sirpi.dvaracattlehealth,0,0,0
+M1,etag,com.sirpi.dvaracattlehealth,0,0,0
+M1,muzzle,com.sirpi.dvaracattlehealth,0,0,0
+M1,pest identification,agri.tnagri,0,0,0
+M1,identify pest,agri.tnagri,0,0,0
+M2 only,photo,all,172,54,1
+M2 only,pic,all,60,2,0
+M2 only,picture,all,82,0,0
+M2 only,image,all,70,1,0
+M2 only,scan,all,49,7,0
+M2 only,camera,all,43,1,0
+M2 only,voice,all,15,2,0
+M2 only,bol kar,all,0,0,0
+M2 only,bolkar,all,3,1,0
+M2 only,bol ke,all,0,2,0
+M2 only,फोटो,all,0,95,0
+M2 only,फ़ोटो,all,0,11,0
+M2 only,तस्वीर,all,0,9,0
+M2 only,स्कैन,all,0,10,0
+M2 only,कैमरा,all,0,1,0
+M2 only,आवाज,all,0,2,0
+M2 only,आवाज़,all,0,0,0
+M2 only,बोलकर,all,0,5,0
+M2 only,बोल कर,all,0,5,0

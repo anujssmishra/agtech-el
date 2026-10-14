@@ -75,6 +75,8 @@ Steps 3–5 need no internet. Claude can also run them from its side on the `dat
 | `reviews_lang.csv` | `reviews_raw.csv` plus the language columns (see the top of `detect_language.py`). |
 | `panel_app_lang_month.csv` | App × language × month counts, zeros included (details below). |
 | `app_month.csv` | App × month totals, Indian-language shares under each measure, mean stars. |
+| `replies_app_lang_month.csv` | App × month × language label × stars × review-length bin: reviews, developer replies, reply delays (sum of log(1 + days)), reply languages. Written by `analysis/replies.py aggregate`; rules in `docs/analysis_plan_replies.md`. No text, so it is committed. |
+| `ai_mentions_app_lang_month.csv` | App × month × language label: reviews, reviews mentioning AI (M1, M2) and star sums. Written by `analysis/ai_takeup.py aggregate`; keyword rules in `docs/analysis_plan_ai_takeup.md`. No text, so it is committed. |
 
 Panel count columns:
 

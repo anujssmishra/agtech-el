@@ -6,6 +6,8 @@ estimate.py - Poisson (PPML) estimates of the AI-launch effect on Indian-languag
     python analysis/estimate.py --panel data/sim/panel_app_lang_month.csv --launch data/sim/launch_dates.csv --out results/sim
     python analysis/estimate.py --placebo 100                     # add 100 placebo draws (rerun to add more)
     python analysis/estimate.py --exclude-overlap 3               # drop apps with a funding round or M&A within 3 months of launch
+    python analysis/estimate.py --leave-one-out                   # also re-fit dropping each treated app in turn
+    python analysis/estimate.py --categories "Input marketplace + advisory;Advisory / crop health" --out results/input_advisory
 
 Model (one row per app a, language l, month t; Undetermined / No text rows dropped):
     E[n_alt] = exp( beta * AI_at * Indian_l  +  app x month FE  +  language x month FE  +  app x language FE )
@@ -22,7 +24,8 @@ Inputs
                                      panel_end (optional YYYY-MM: last month to use for that app)
     --firm-events data/firm_events.csv  package, event_month (for --exclude-overlap)
 Outputs in --out (default results/): main_estimates.csv, main_table.csv/.tex (tables.py),
-event_study.csv/.png/.pdf, placebo.csv/.png/.pdf, summary.md. Figures are sized for one journal column (90 mm).
+event_study.csv/.png/.pdf, placebo.csv/.png/.pdf, summary.md, leave_one_out.csv (with --leave-one-out).
+Figures are sized for one journal column (90 mm).
 """
 import argparse
 import warnings
@@ -135,6 +138,25 @@ def placebo(d, launch, y, reps, seed, min_side=6):
     return pd.DataFrame(out)
 
 
+def keep_categories(p, launch, packages_path, cats):
+    """Keep apps whose category in packages.csv starts with one of `cats` (a list of prefixes)."""
+    pk = pd.read_csv(packages_path, dtype=str).fillna("")
+    keep = set(pk.loc[pk["category"].apply(lambda c: any(c.startswith(x) for x in cats)), "package"])
+    return p[p["package"].isin(keep)].copy(), {k: v for k, v in launch.items() if k in keep}
+
+
+def leave_one_out(d, y):
+    """Main estimate re-fitted without each treated app in turn."""
+    out = []
+    for pkg in sorted(d.loc[d["launch_t"].notna(), "package"].unique()):
+        res = fit_main(d[d["package"] != pkg], y)
+        if res:
+            out.append({"dropped": pkg, "platform": d.loc[d["package"] == pkg, "platform"].iloc[0] if "platform" in d else pkg,
+                        "beta": res["beta"], "se": res["se"], "p": res["p"], "effect_pct": res["effect_pct"],
+                        "n_treated": res["n_treated"]})
+    return pd.DataFrame(out)
+
+
 def ri_pvalue(placebo_betas, beta):
     """Two-sided randomization-inference p-value: share of placebo estimates at least as large as |beta|."""
     return float((np.abs(np.asarray(placebo_betas)) >= abs(beta)).mean())
@@ -163,7 +185,7 @@ def save_figure(fig, path):
     fig.savefig(Path(path).with_suffix(".pdf"))
 
 
-def plot_event(es, path):
+def plot_event(es, path, ylabel="Effect on Indian-language\nreviews (log points)"):
     """Quarterly effects with 95% intervals; black and white, one journal column wide."""
     import matplotlib
     matplotlib.use("Agg")
@@ -184,13 +206,13 @@ def plot_event(es, path):
                     fontsize=6.5, color="0.3")
         ax.set_xticks(qs, labels)
         ax.set_xlabel("Quarters since AI launch")
-        ax.set_ylabel("Effect on Indian-language\nreviews (log points)")
+        ax.set_ylabel(ylabel)
         fig.tight_layout(pad=0.3)
         save_figure(fig, path)
         plt.close(fig)
 
 
-def plot_placebo(pl, beta, path, p_ri=None):
+def plot_placebo(pl, beta, path, p_ri=None, xlabel="Placebo estimate (log points)"):
     """Histogram of placebo estimates with the actual estimate marked; one journal column wide."""
     import matplotlib
     matplotlib.use("Agg")
@@ -202,12 +224,12 @@ def plot_placebo(pl, beta, path, p_ri=None):
         ax.axvline(beta, color="black", lw=1.2)
         ax.set_xlim(-lim, lim)
         ax.set_ylim(0, 1.3 * counts.max())
-        ax.annotate("Estimate", (beta, 1), xycoords=("data", "axes fraction"), xytext=(-3 if beta > 0 else 3, -1),
-                    textcoords="offset points", ha="right" if beta > 0 else "left", va="top", fontsize=7)
-        if p_ri is not None:
-            ax.text(0.02 if beta > 0 else 0.98, 0.98, f"Randomization-inference p = {p_ri:.3f}\n({len(pl):,} placebo draws)",
-                    transform=ax.transAxes, ha="left" if beta > 0 else "right", va="top", fontsize=7)
-        ax.set_xlabel("Placebo estimate (log points)")
+        left = beta > 0  # label on the side of the line with more room
+        ax.annotate("Estimate", (beta, 1), xycoords=("data", "axes fraction"), xytext=(-3 if left else 3, -1),
+                    textcoords="offset points", ha="right" if left else "left", va="top", fontsize=7)
+        if p_ri is not None:  # above the plot, so it never collides with the bars or the label
+            ax.set_title(f"Randomization-inference p = {p_ri:.3f} ({len(pl):,} placebo draws)", fontsize=7, loc="right", pad=3)
+        ax.set_xlabel(xlabel)
         ax.set_ylabel("Placebo draws")
         fig.tight_layout(pad=0.3)
         save_figure(fig, path)
@@ -223,6 +245,11 @@ def main():
     ap.add_argument("--placebo", type=int, default=0, help="placebo draws to add (appended to placebo.csv)")
     ap.add_argument("--exclude-overlap", type=int, default=-1,
                     help="drop treated apps with a funding round or M&A within this many months of launch")
+    ap.add_argument("--categories", default="",
+                    help="keep only apps whose category in --packages starts with one of these (separate with ';')")
+    ap.add_argument("--packages", type=Path, default=ROOT / "play_reviews" / "packages.csv")
+    ap.add_argument("--leave-one-out", action="store_true",
+                    help="also re-estimate the main measure dropping each treated app in turn (leave_one_out.csv)")
     ap.add_argument("--out", type=Path, default=ROOT / "results")
     a = ap.parse_args()
     a.out.mkdir(parents=True, exist_ok=True)
@@ -235,6 +262,10 @@ def main():
         launch = {k: v for k, v in launch.items() if k not in ex}
         notes.append(f"Dropped for a firm event within {a.exclude_overlap} months of launch: "
                      + (", ".join(f"{k} ({v} mo)" for k, v in ex.items()) or "none"))
+    if a.categories:
+        cats = [c.strip() for c in a.categories.split(";") if c.strip()]
+        p, launch = keep_categories(p, launch, a.packages, cats)
+        notes.append(f"Only apps whose category starts with: {'; '.join(cats)} ({p['package'].nunique()} apps)")
     d = prepare(p, launch)
     measures = [m.strip() for m in a.measures.split(",") if m.strip() in d.columns]
 
@@ -268,6 +299,13 @@ def main():
         p_ri = ri_pvalue(pl["beta"], beta0)
         lines += ["", f"Randomization inference ({len(pl)} placebo draws, {MEASURE_LABEL.get(y0, y0)}): p = {p_ri:.3f}"]
         plot_placebo(pl, beta0, a.out / "placebo.png", p_ri)
+    if a.leave_one_out:
+        loo = leave_one_out(d, y0)
+        loo.to_csv(a.out / "leave_one_out.csv", index=False)
+        if len(loo):
+            lo, hi = loo.loc[loo["effect_pct"].idxmin()], loo.loc[loo["effect_pct"].idxmax()]
+            lines += ["", f"Leave one treated app out ({MEASURE_LABEL.get(y0, y0)}): effect from {lo.effect_pct:+.1f}% "
+                      f"(without {lo.platform}) to {hi.effect_pct:+.1f}% (without {hi.platform})"]
     pre = es[es["quarter"] < -1]
     if len(pre):
         lines += ["", "Pre-launch quarters (should be near zero): "

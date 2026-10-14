@@ -1,0 +1,10 @@
+﻿,(1) Main,(2) Mixed reviews as Indian,(3) Indian script only,(4) Google Play language tag
+AI × Indian language (%),−5.8,−6.9,−1.7,12.7
+,[10.1],[11.0],[8.7],[5.7]
+95% confidence interval (%),"(−23.7, 16.3)","(−26.2, 17.5)","(−17.4, 17.0)","(2.0, 24.5)"
+"p-value, clustered by app",0.580,0.548,0.848,0.019
+"p-value, randomization inference",0.783,,,
+Apps,16,16,16,16
+Treated apps,9,9,9,9
+Observations,"7,958","8,350","7,736","6,174"
+Reviews,"81,334","81,334","84,487","84,570"

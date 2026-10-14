@@ -24,3 +24,17 @@ def test_no_effect_is_small():
     launch = {r.package: r.ai_launch_month for r in lau.itertuples() if r.ai_launch_month}
     res = fit_main(prepare(panel, launch), "n_main")
     assert abs(res["beta"]) < 0.2
+
+
+def test_leave_one_out_and_categories(tmp_path):
+    from estimate import keep_categories, leave_one_out
+    panel, lau = simulate(n_apps=12, n_treated=4, effect=0.3, seed=5)
+    launch = {r.package: r.ai_launch_month for r in lau.itertuples() if r.ai_launch_month}
+    d = prepare(panel, launch)
+    loo = leave_one_out(d, "n_main")
+    assert sorted(loo["dropped"]) == sorted(launch) and (loo["n_treated"] == len(launch) - 1).all()
+    pk = tmp_path / "packages.csv"
+    pk.write_text("package,category\nsim.app00,Input marketplace + advisory\nsim.app05,Advisory / crop health (GenAI)\n"
+                  "sim.app06,Weather / agromet advisory\n")
+    p2, l2 = keep_categories(panel, launch, pk, ["Input marketplace", "Advisory / crop health"])
+    assert set(p2["package"]) == {"sim.app00", "sim.app05"} and set(l2) == {"sim.app00"} & set(launch)
