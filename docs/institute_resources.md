@@ -61,6 +61,13 @@ India; EPWRF India Time Series; RBI Database on Indian Economy; Data Visualizati
 Statista; Euromonitor Passport; MarketLine Advantage; CRISIL Research; ICRA Industry Reports; Fitch Solutions;
 Gartner; NASSCOM.
 
+## Free source outside the subscription: India Data Portal
+
+The India Data Portal (Bharti Institute of Public Policy, ISB) is open to everyone. It has 91 cleaned
+government datasets with LGD codes, among them NFHS internet use by district for 2019-21 and 2023-24, the
+Census 2011 primary abstract and household amenities, SECC 2011, the Agricultural Census, the Input Survey and
+Mission Antyodaya village records. See `docs/india_data_portal.md` for every dataset, file and variable.
+
 ## Full list (113)
 
 - ACE Knowledge and Research Portal
